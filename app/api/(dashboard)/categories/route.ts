@@ -31,7 +31,7 @@ export const GET = async (request: Request) => {
     }
 
     const categories = await Category.find({
-      user: new Types.ObjectId(userId),
+      user: new Types.ObjectId(userId), // checking if user = userID
     });
 
     return new NextResponse(JSON.stringify(categories), {
@@ -43,6 +43,11 @@ export const GET = async (request: Request) => {
     });
   }
 };
+
+
+
+
+
 
 export const POST = async (request: Request) => {
   try {
